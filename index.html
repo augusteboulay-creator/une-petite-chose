@@ -1,0 +1,682 @@
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pour Inès</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #33272c;
+            background: #fffafa;
+        }
+
+        /* Signature */
+
+        .signature {
+            position: fixed;
+            right: 12px;
+            bottom: 10px;
+            z-index: 100;
+
+            font-size: 11px;
+            color: #927f86;
+
+            background: rgba(255, 255, 255, 0.85);
+            padding: 6px 10px;
+            border-radius: 15px;
+        }
+
+        /* Navigation */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 17px 25px;
+
+            display: flex;
+            justify-content: center;
+
+            background: rgba(255, 250, 250, 0.9);
+            backdrop-filter: blur(8px);
+
+            z-index: 50;
+        }
+
+        nav span {
+            font-size: 14px;
+            color: #8d6875;
+        }
+
+        /* Sections */
+
+        section {
+            min-height: 100vh;
+            padding: 100px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 760px;
+            text-align: center;
+        }
+
+        /* Accueil */
+
+        .home {
+            background:
+                linear-gradient(
+                    rgba(255,250,250,0.85),
+                    rgba(255,242,246,0.95)
+                );
+        }
+
+        .date {
+            color: #a47786;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(45px, 9vw, 80px);
+            font-weight: 500;
+            margin: 0 0 25px;
+            letter-spacing: -2px;
+        }
+
+        .home p {
+            max-width: 560px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #66545b;
+        }
+
+        .heart {
+            color: #e8879e;
+            font-size: 35px;
+            margin: 30px 0;
+        }
+
+        .continue {
+            display: inline-block;
+            margin-top: 35px;
+
+            padding: 13px 23px;
+
+            border: 1px solid #e5a8b7;
+            border-radius: 25px;
+
+            color: #a75e73;
+            text-decoration: none;
+
+            transition: 0.25s;
+        }
+
+        .continue:hover {
+            background: #fcecef;
+        }
+
+        /* Texte */
+
+        .light {
+            background: #fff;
+        }
+
+        .pink-section {
+            background: #fff5f7;
+        }
+
+        h2 {
+            font-size: clamp(30px, 6vw, 45px);
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .text {
+            font-size: 17px;
+            line-height: 1.9;
+            color: #63545a;
+        }
+
+        /* Compliments */
+
+        .compliments {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .compliment {
+            padding: 20px 0;
+            border-bottom: 1px solid #eedfe3;
+        }
+
+        .compliment:last-child {
+            border-bottom: none;
+        }
+
+        .compliment strong {
+            color: #b5687c;
+            font-size: 19px;
+            font-weight: 500;
+        }
+
+        .compliment p {
+            margin: 8px 0 0;
+            color: #6b5a61;
+            line-height: 1.7;
+        }
+
+        /* Lettre */
+
+        .letter {
+            margin-top: 35px;
+            padding: 35px;
+
+            background: white;
+            border: 1px solid #f0dfe4;
+
+            border-radius: 12px;
+
+            text-align: left;
+
+            line-height: 1.9;
+            color: #5c4c53;
+
+            box-shadow: 0 10px 35px rgba(100, 50, 65, 0.05);
+        }
+
+        .letter p {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .letter p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Question */
+
+        .question-box {
+            margin-top: 35px;
+        }
+
+        .question {
+            font-size: 25px;
+            line-height: 1.5;
+            margin: 30px 0;
+        }
+
+        .small {
+            font-size: 15px;
+            color: #89777e;
+            line-height: 1.7;
+        }
+
+        /* Boutons */
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+
+            margin-top: 30px;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+
+            padding: 13px 22px;
+
+            border-radius: 25px;
+
+            font-size: 15px;
+
+            transition: 0.25s;
+        }
+
+        .yes {
+            background: #df7f98;
+            color: white;
+        }
+
+        .no {
+            background: #f0e8eb;
+            color: #66545b;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Réponse */
+
+        .response {
+            display: none;
+
+            margin-top: 30px;
+            padding: 25px;
+
+            background: #fff6f8;
+            border-radius: 12px;
+
+            line-height: 1.8;
+            color: #5f4d55;
+
+            animation: appear 0.4s ease;
+        }
+
+        .response.show {
+            display: block;
+        }
+
+        .response h3 {
+            margin-top: 0;
+            color: #ae6278;
+            font-weight: 500;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Fin */
+
+        .end {
+            min-height: 75vh;
+            background: #fff5f7;
+        }
+
+        .signature-final {
+            margin-top: 35px;
+            font-size: 17px;
+            color: #9d6979;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 90px 18px;
+            }
+
+            .letter {
+                padding: 25px;
+            }
+
+            .home p {
+                font-size: 16px;
+            }
+
+            .signature {
+                font-size: 9px;
+                right: 7px;
+                bottom: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <span>Une petite chose pour toi</span>
+    </nav>
+
+    <div class="signature">
+        Codé et créé par Augustin
+    </div>
+
+
+    <!-- ACCUEIL -->
+
+    <section class="home">
+
+        <div class="content">
+
+            <div class="date">
+                Pour Inès
+            </div>
+
+            <h1>
+                J'ai quelque chose
+                à te dire.
+            </h1>
+
+            <div class="heart">
+                ♥
+            </div>
+
+            <p>
+                Je ne savais pas vraiment comment te le dire,
+                alors j'ai décidé de faire ça.
+            </p>
+
+            <a href="#pourquoi" class="continue">
+                Continue →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- POURQUOI -->
+
+    <section id="pourquoi" class="light">
+
+        <div class="content">
+
+            <h2>
+                Pourquoi toi ?
+            </h2>
+
+            <p class="text">
+                Il y a plein de choses que j'aime chez toi,
+                et je ne pense pas pouvoir toutes les écrire ici.
+                Mais il y en a quelques-unes que je voulais quand même
+                te dire.
+            </p>
+
+            <div class="compliments">
+
+                <div class="compliment">
+                    <strong>Tu es belle.</strong>
+                    <p>
+                        Je te trouve vraiment jolie, mais ce n'est
+                        pas seulement ton apparence. Il y a quelque
+                        chose chez toi qui te rend spéciale à mes yeux.
+                    </p>
+                </div>
+
+                <div class="compliment">
+                    <strong>Tu es gentille.</strong>
+                    <p>
+                        J'aime la façon dont tu es avec les personnes
+                        autour de toi. Tu as vraiment un bon cœur.
+                    </p>
+                </div>
+
+                <div class="compliment">
+                    <strong>Tu es intelligente.</strong>
+                    <p>
+                        J'aime discuter avec toi et découvrir ta façon
+                        de penser. Tu es quelqu'un que j'admire.
+                    </p>
+                </div>
+
+                <div class="compliment">
+                    <strong>Tu es drôle.</strong>
+                    <p>
+                        Tu arrives souvent à me faire sourire,
+                        parfois sans même t'en rendre compte.
+                    </p>
+                </div>
+
+                <div class="compliment">
+                    <strong>Tu es adorable.</strong>
+                    <p>
+                        Il y a plein de petits détails dans ta façon
+                        d'être que je trouve vraiment adorables.
+                    </p>
+                </div>
+
+                <div class="compliment">
+                    <strong>Tu es importante pour moi.</strong>
+                    <p>
+                        Et je pense que c'est finalement le plus
+                        important à te dire.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LETTRE -->
+
+    <section class="pink-section">
+
+        <div class="content">
+
+            <h2>
+                Ce que je voulais vraiment te dire
+            </h2>
+
+            <div class="letter">
+
+                <p>
+                    Inès,
+                </p>
+
+                <p>
+                    Si tu es arrivée jusqu'ici, c'est probablement
+                    que tu as compris pourquoi j'ai fait ce site.
+                </p>
+
+                <p>
+                    Ça fait quelque temps que je ressens quelque
+                    chose de différent pour toi.
+                </p>
+
+                <p>
+                    J'aime parler avec toi, rigoler avec toi,
+                    passer du temps avec toi et simplement être
+                    avec toi.
+                </p>
+
+                <p>
+                    Au début je ne savais pas vraiment quoi en penser,
+                    mais avec le temps j'ai compris que tu étais
+                    devenue quelqu'un de vraiment important pour moi.
+                </p>
+
+                <p>
+                    Alors j'ai décidé d'arrêter de garder ça pour moi
+                    et de simplement te dire ce que je ressens.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUESTION -->
+
+    <section class="light">
+
+        <div class="content">
+
+            <h2>
+                Alors...
+            </h2>
+
+            <div class="question-box">
+
+                <p class="text">
+                    Je vais être direct.
+                </p>
+
+                <div class="question">
+                    Est-ce que tu voudrais essayer quelque chose
+                    avec moi ?
+                </div>
+
+                <p class="small">
+                    Tu n'as aucune obligation de répondre oui.
+                    Je veux juste que tu sois honnête avec moi.
+                    Et peu importe ta réponse, je la respecterai.
+                </p>
+
+                <div class="buttons">
+
+                    <button
+                        class="yes"
+                        onclick="answer('yes')">
+                        Oui, moi aussi
+                    </button>
+
+                    <button
+                        class="no"
+                        onclick="answer('no')">
+                        Je préfère qu'on reste amis
+                    </button>
+
+                </div>
+
+                <div id="yesResponse" class="response">
+
+                    <h3>
+                        Merci pour ta réponse.
+                    </h3>
+
+                    <p>
+                        Ça me fait vraiment plaisir de savoir
+                        ce que tu ressens.
+                    </p>
+
+                    <p>
+                        Si tu veux, tu peux maintenant envoyer
+                        ta réponse à Augustin pour qu'il puisse
+                        la voir.
+                    </p>
+
+                </div>
+
+                <div id="noResponse" class="response">
+
+                    <h3>
+                        Merci d'avoir été honnête.
+                    </h3>
+
+                    <p>
+                        Je respecte complètement ta réponse.
+                    </p>
+
+                    <p>
+                        Et surtout, ne pense pas que ça enlève
+                        l'importance que tu as pour moi.
+                        Notre amitié compte toujours énormément.
+                    </p>
+
+                    <p>
+                        Si tu veux, tu peux maintenant envoyer
+                        ta réponse à Augustin pour qu'il puisse
+                        la voir.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FIN -->
+
+    <section class="end">
+
+        <div class="content">
+
+            <h2>
+                Merci d'avoir lu jusqu'ici.
+            </h2>
+
+            <p class="text">
+                Je voulais simplement que tu saches ce que
+                je ressens, sans te mettre de pression.
+            </p>
+
+            <p class="signature-final">
+                Augustin ♥
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        function answer(type) {
+
+            const yes =
+                document.getElementById("yesResponse");
+
+            const no =
+                document.getElementById("noResponse");
+
+            yes.classList.remove("show");
+            no.classList.remove("show");
+
+            if (type === "yes") {
+
+                yes.classList.add("show");
+
+                setTimeout(function () {
+
+                    yes.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }, 100);
+            }
+
+            if (type === "no") {
+
+                no.classList.add("show");
+
+                setTimeout(function () {
+
+                    no.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }, 100);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+```
+
